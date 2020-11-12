@@ -10,4 +10,6 @@ public class Hello : MonoBehaviour
     {
         Debug.Log(Class1.Test);
     }
+
+    public static string Sample() => "Sample";
 }
