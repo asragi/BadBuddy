@@ -1,6 +1,6 @@
 name: .NET Core
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build:
@@ -15,7 +15,5 @@ jobs:
         dotnet-version: 3.1.301
     - name: Install dependencies
       run: dotnet restore
-    - name: Build
-      run: dotnet build ./BuddyDomain/BuddyDomain.csproj --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
