@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "BuddyUnity\Assembly-CSharp.csproj", "{0C42CFD6-ED6C-868D-6BCA-D9941CDC51D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuddyDomain", "BuddyDomain\BuddyDomain.csproj", "{1884FF62-82FB-4B52-A343-635001A74609}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDomain", "TestDomain\TestDomain.csproj", "{5F7386A7-C06F-4FCB-93FC-489FAA895DC1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C42CFD6-ED6C-868D-6BCA-D9941CDC51D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C42CFD6-ED6C-868D-6BCA-D9941CDC51D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C42CFD6-ED6C-868D-6BCA-D9941CDC51D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C42CFD6-ED6C-868D-6BCA-D9941CDC51D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1884FF62-82FB-4B52-A343-635001A74609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1884FF62-82FB-4B52-A343-635001A74609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1884FF62-82FB-4B52-A343-635001A74609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1884FF62-82FB-4B52-A343-635001A74609}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F7386A7-C06F-4FCB-93FC-489FAA895DC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F7386A7-C06F-4FCB-93FC-489FAA895DC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F7386A7-C06F-4FCB-93FC-489FAA895DC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F7386A7-C06F-4FCB-93FC-489FAA895DC1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
