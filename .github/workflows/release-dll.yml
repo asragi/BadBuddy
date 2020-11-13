@@ -26,3 +26,23 @@ jobs:
         with:
           tag_name: ${{ github.ref }}
           release_name: Release ${{ github.ref }}
+      - name: Upload Bin File Domain
+        id: upload_bin_file_domain
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./BuddyDomain/bin/Release/netstandard2.0/BuddyDomain.dll
+          asset_name: BuddyDomain.dll
+          asset_content_type: application/octet-stream
+      - name: Upload Bin File Application
+        id: upload_bin_file_application
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./BuddyApplication/bin/Release/netstandard2.0/BuddyApplication.dll
+          asset_name: BuddyApplication.dll
+          asset_content_type: application/octet-stream
