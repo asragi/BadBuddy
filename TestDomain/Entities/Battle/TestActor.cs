@@ -10,9 +10,7 @@ namespace TestDomain.Entities.Battle
         [TestMethod]
         public void TestDieAndRevive()
         {
-            var health = new HealthPoint(100);
-            var max = new MaxHealthPoint(health);
-            var actor = new Actor(max, health);
+            var actor = CreateActor();
             Assert.IsTrue(actor.Alive);
             var damage = new HealthPoint(1000);
             actor.Damaged(damage);
@@ -20,6 +18,16 @@ namespace TestDomain.Entities.Battle
             var recover = new HealthPoint(1);
             actor.Recover(recover);
             Assert.IsTrue(actor.Alive);
+        }
+
+        private static Actor CreateActor()
+        {
+            var health = new HealthPoint(100);
+            var max = new MaxHealthPoint(health);
+            var attack = new Attack(50);
+            var speed = new Speed(50);
+            var magic = new Magic(50);
+            return new Actor(max, health, attack, speed, magic);
         }
     }
 }
