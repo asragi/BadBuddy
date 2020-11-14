@@ -33,7 +33,7 @@
         <Rule Id="SA1027" Action="Warning" />
         <Rule Id="SA1028" Action="Warning" />
         <Rule Id="SA1100" Action="Warning" />
-        <Rule Id="SA1101" Action="None" />
+        <Rule Id="SA1101" Action="Warning" />
         <Rule Id="SA1102" Action="Warning" />
         <Rule Id="SA1103" Action="Warning" />
         <Rule Id="SA1104" Action="Warning" />
@@ -68,7 +68,7 @@
         <Rule Id="SA1136" Action="Warning" />
         <Rule Id="SA1137" Action="Warning" />
         <Rule Id="SA1139" Action="Warning" />
-        <Rule Id="SA1200" Action="None" />
+        <Rule Id="SA1200" Action="None" /> <!-- Using directive must be placed correctly -->
         <Rule Id="SA1201" Action="Warning" />
         <Rule Id="SA1202" Action="Warning" />
         <Rule Id="SA1203" Action="Warning" />
@@ -133,9 +133,9 @@
         <Rule Id="SA1518" Action="Warning" />
         <Rule Id="SA1519" Action="Warning" />
         <Rule Id="SA1520" Action="Warning" />
-        <Rule Id="SA1600" Action="None" />
+        <Rule Id="SA1600" Action="None" /> <!-- Elements should be documented -->
         <Rule Id="SA1601" Action="Warning" />
-        <Rule Id="SA1602" Action="Warning" />
+        <Rule Id="SA1602" Action="None" /> <!-- Enumeration should be documented -->
         <Rule Id="SA1604" Action="Warning" />
         <Rule Id="SA1605" Action="Warning" />
         <Rule Id="SA1606" Action="Warning" />
@@ -164,7 +164,7 @@
         <Rule Id="SA1630" Action="Warning" />
         <Rule Id="SA1631" Action="Warning" />
         <Rule Id="SA1632" Action="Warning" />
-        <Rule Id="SA1633" Action="None" />
+        <Rule Id="SA1633" Action="None" /> <!-- File should have header -->
         <Rule Id="SA1634" Action="Warning" />
         <Rule Id="SA1635" Action="Warning" />
         <Rule Id="SA1636" Action="Warning" />
