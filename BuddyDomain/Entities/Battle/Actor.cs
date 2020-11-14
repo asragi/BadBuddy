@@ -1,4 +1,5 @@
 using BuddyDomain.ValueObjects.Battle;
+using BuddyDomain.ValueObjects.Battle.Actor;
 
 namespace BuddyDomain.Entities.Battle
 {
@@ -11,18 +12,26 @@ namespace BuddyDomain.Entities.Battle
         private Magic magic;
 
         public Actor(
+            ActorId actorId,
+            ActorType actorType,
             MaxHealthPoint maxHp,
             HealthPoint hp,
             Attack attack,
             Speed speed,
             Magic magic)
         {
+            this.ActorId = actorId;
+            this.ActorType = actorType;
             this.maxHp = maxHp;
             this.hp = hp;
             this.attack = attack;
             this.speed = speed;
             this.magic = magic;
         }
+
+        public ActorId ActorId { get; }
+
+        public ActorType ActorType { get; }
 
         public bool Alive => this.hp.Alive;
 

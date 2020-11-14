@@ -1,5 +1,6 @@
 using BuddyDomain.Entities.Battle;
 using BuddyDomain.ValueObjects.Battle;
+using BuddyDomain.ValueObjects.Battle.Actor;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TestDomain.Entities.Battle
@@ -22,12 +23,14 @@ namespace TestDomain.Entities.Battle
 
         private static Actor CreateActor()
         {
+            var actorId = new ActorId("TestActor");
+            var actorType = new ActorType("TestActor");
             var health = new HealthPoint(100);
             var max = new MaxHealthPoint(health);
             var attack = new Attack(50);
             var speed = new Speed(50);
             var magic = new Magic(50);
-            return new Actor(max, health, attack, speed, magic);
+            return new Actor(actorId, actorType, max, health, attack, speed, magic);
         }
     }
 }
