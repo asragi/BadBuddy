@@ -16,7 +16,7 @@ namespace BuddyDomain.ValueObjects.Battle.Skill
             this.value = value;
         }
 
-        public bool CheckRemain() => value > 0;
+        public bool CheckRemain() => this.value > 0;
 
         public SkillPoint Consume()
         {
