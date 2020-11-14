@@ -41,7 +41,7 @@ namespace BuddyDomain.ValueObjects.Battle
 
         public HealthPoint Reduce(HealthPoint down)
         {
-            int newerValue = Math.Max(0, value - down.value);
+            int newerValue = Math.Max(0, this.value - down.value);
             return new HealthPoint(newerValue);
         }
 
@@ -52,5 +52,6 @@ namespace BuddyDomain.ValueObjects.Battle
             return new HealthPoint(after);
         }
 
+        public string Display() => this.value.ToString();
     }
 }

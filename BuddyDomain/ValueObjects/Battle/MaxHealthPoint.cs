@@ -2,8 +2,14 @@ namespace BuddyDomain.ValueObjects.Battle
 {
     public readonly struct MaxHealthPoint
     {
-        private readonly int value;
+        public MaxHealthPoint(HealthPoint value)
+        {
+            this.MaxHealth = value;
+        }
 
-        public HealthPoint MaxHealth => new HealthPoint(value);
+        public HealthPoint MaxHealth { get; }
+
+        public string Display()
+            => this.MaxHealth.Display();
     }
 }

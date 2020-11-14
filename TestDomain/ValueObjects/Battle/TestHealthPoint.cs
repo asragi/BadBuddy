@@ -32,5 +32,13 @@ namespace TestDomain.ValueObjects.Battle
             var reduced = baseHealth.Reduce(minusHealth);
             Assert.IsTrue(reduced == HealthPoint.Zero);
         }
+
+        [TestMethod]
+        public void DisplayTest()
+        {
+            var health = new HealthPoint(100);
+            var text = health.Display();
+            Assert.IsFalse(string.IsNullOrWhiteSpace(text));
+        }
     }
 }
