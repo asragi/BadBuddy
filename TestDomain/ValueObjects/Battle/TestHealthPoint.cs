@@ -8,29 +8,28 @@ namespace TestDomain.ValueObjects.Battle
     public class TestHealthPoint
     {
         [TestMethod]
-        public void CheckEquals()
+        public void ArgMustBePositive()
         {
-            var first = new HealthPoint(100);
-            var second = new HealthPoint(100);
-            Assert.IsTrue(first == second);
-            var third = new HealthPoint(200);
-            Assert.IsFalse(first == third);
+            static void IllegalNew() => new HealthPoint(-1);
+            Assert.ThrowsException<ArgumentException>(IllegalNew);
         }
 
         [TestMethod]
-        public void ArgMustBePositive()
+        public void TestAlive()
         {
-            Action illegalNew = () => new HealthPoint(-1);
-            Assert.ThrowsException<ArgumentException>(illegalNew);
+            var health = new HealthPoint(100);
+            Assert.IsTrue(health.Alive);
         }
 
         [TestMethod]
         public void NonNegativeOnReduce()
         {
             var baseHealth = new HealthPoint(100);
-            var minusHealth = new HealthPoint(200);
+            var minusHealth = new HealthPoint(1000);
+            var maxHp = new MaxHealthPoint(baseHealth);
             var reduced = baseHealth.Reduce(minusHealth);
-            Assert.IsTrue(reduced == HealthPoint.Zero);
+            var recovered = reduced.Recover(baseHealth, maxHp);
+            Assert.IsTrue(recovered.Alive);
         }
 
         [TestMethod]

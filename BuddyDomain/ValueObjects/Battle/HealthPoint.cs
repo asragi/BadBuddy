@@ -18,26 +18,7 @@ namespace BuddyDomain.ValueObjects.Battle
 
         public static HealthPoint Zero => new HealthPoint(0);
 
-        public static bool operator ==(HealthPoint left, HealthPoint right)
-            => left.Equals(right);
-
-        public static bool operator !=(HealthPoint left, HealthPoint right)
-            => !(left == right);
-
-        public override bool Equals(object obj)
-        {
-            if (obj is HealthPoint health)
-            {
-                return Equals(health);
-            }
-
-            return false;
-        }
-
-        public override int GetHashCode() => value;
-
-        public bool Equals(HealthPoint health)
-            => this.value == health.value;
+        public bool Alive => this.value > 0;
 
         public HealthPoint Reduce(HealthPoint down)
         {
