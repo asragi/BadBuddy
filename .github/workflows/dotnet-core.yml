@@ -3,7 +3,7 @@ name: .NET Core
 on: [pull_request]
 
 jobs:
-  build:
+  test:
 
     runs-on: ubuntu-latest
 
@@ -15,5 +15,7 @@ jobs:
         dotnet-version: 3.1.301
     - name: Install dependencies
       run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-restore --verbosity normal
