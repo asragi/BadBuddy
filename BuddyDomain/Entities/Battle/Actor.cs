@@ -13,6 +13,7 @@ namespace BuddyDomain.Entities.Battle
 
         public Actor(
             ActorId actorId,
+            ActorType actorType,
             MaxHealthPoint maxHp,
             HealthPoint hp,
             Attack attack,
@@ -20,6 +21,7 @@ namespace BuddyDomain.Entities.Battle
             Magic magic)
         {
             this.ActorId = actorId;
+            this.ActorType = actorType;
             this.maxHp = maxHp;
             this.hp = hp;
             this.attack = attack;
@@ -28,6 +30,8 @@ namespace BuddyDomain.Entities.Battle
         }
 
         public ActorId ActorId { get; }
+
+        public ActorType ActorType { get; }
 
         public bool Alive => this.hp.Alive;
 
