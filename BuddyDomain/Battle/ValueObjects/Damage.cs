@@ -1,4 +1,5 @@
 using System;
+using BuddyDomain.ValueObjects;
 
 namespace BuddyDomain.Battle.ValueObjects
 {
@@ -18,5 +19,7 @@ namespace BuddyDomain.Battle.ValueObjects
 
         public void NotifyDamage(IDamageListener listener)
             => listener.ListenDamage(value);
+
+        public Damage Multiply(Rate rate) => new Damage((int)rate.Apply(value));
     }
 }

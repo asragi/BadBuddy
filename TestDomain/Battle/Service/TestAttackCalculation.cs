@@ -21,7 +21,6 @@ namespace TestDomain.Battle.Service
             var skillRepository = new Mock<ISkillRepository>();
             var attackPowerBuilder = new Mock<IAttackPowerBuilder>();
             var defenseRateBuilder = new Mock<IDefenseRateBuilder>();
-            var damageBuilder = new Mock<IDamageBuilder>();
             var random = new Mock<IRandom>();
 
             // Create Dummy Id
@@ -56,7 +55,6 @@ namespace TestDomain.Battle.Service
                 skillRepository.Object,
                 attackPowerBuilder.Object,
                 defenseRateBuilder.Object,
-                damageBuilder.Object,
                 random.Object);
 
             attackCalculation.ExecuteCalculation(actorId, actorId, skillId);

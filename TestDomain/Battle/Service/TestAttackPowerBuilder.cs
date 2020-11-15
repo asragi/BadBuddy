@@ -12,16 +12,16 @@ namespace TestDomain.Battle.Service
         public void Build()
         {
             var innerBuilder = new Mock<IAttackPowerBuilderInner>();
-            var attackPowerMock = new AttackPower(5000);
+            var attackPowerMock = new Damage(5000);
             innerBuilder.Setup(i => i.Build()).Returns(attackPowerMock);
 
             var builder = new AttackPowerBuilder(innerBuilder.Object);
             var attackPower = builder.Build();
 
-            var mockListener = new Mock<IAttackPowerListener>();
-            mockListener.Setup(l => l.ListenAttackPower(It.IsAny<int>()))
+            var mockListener = new Mock<IDamageListener>();
+            mockListener.Setup(l => l.ListenDamage(It.IsAny<int>()))
                 .Callback<int>(power => Assert.AreEqual(5000, power));
-            attackPower.NotifyAttackPower(mockListener.Object);
+            attackPower.NotifyDamage(mockListener.Object);
         }
     }
 }

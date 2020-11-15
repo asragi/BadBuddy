@@ -19,7 +19,7 @@ namespace BuddyDomain.Battle.Services
 
         public void ForceValue(Force force) => forceRef = force;
 
-        public AttackPower Build()
+        public Damage Build()
         {
             attackRef.NotifyValue(attackPowerBuilderInner);
             forceRef.NotifyValue(attackPowerBuilderInner);

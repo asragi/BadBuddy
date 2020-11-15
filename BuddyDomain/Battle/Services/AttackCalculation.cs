@@ -4,6 +4,7 @@ using BuddyDomain.Battle.ValueObjects.Actor;
 using BuddyDomain.Battle.ValueObjects.Skill;
 using BuddyDomain.Modules;
 using BuddyDomain.Repositories;
+using BuddyDomain.ValueObjects;
 
 namespace BuddyDomain.Battle.Services
 {
@@ -14,14 +15,12 @@ namespace BuddyDomain.Battle.Services
         private readonly ISkillRepository skillRepository;
         private readonly IAttackPowerBuilder attackPowerBuilder;
         private readonly IDefenseRateBuilder defenseRateBuilder;
-        private readonly IDamageBuilder damageBuilder;
 
         public AttackCalculation(
             IActorRepository actorRepository,
             ISkillRepository skillRepository,
             IAttackPowerBuilder attackPowerBuilder,
             IDefenseRateBuilder defenseRateBuilder,
-            IDamageBuilder damageBuilder,
             IRandom random)
         {
             this.actorRepository = actorRepository;
@@ -29,7 +28,6 @@ namespace BuddyDomain.Battle.Services
             this.random = random;
             this.attackPowerBuilder = attackPowerBuilder;
             this.defenseRateBuilder = defenseRateBuilder;
-            this.damageBuilder = damageBuilder;
         }
 
         public Damage ExecuteCalculation(
@@ -41,15 +39,18 @@ namespace BuddyDomain.Battle.Services
             var victim = actorRepository.Find(to);
             var skill = skillRepository.Find(skillId);
 
+            // Build Base Damage
             attacker.NotifyAttackFactor(attackPowerBuilder);
             skill.NotifyForceFactor(attackPowerBuilder);
-            var attackPower = attackPowerBuilder.Build();
+            var damage = attackPowerBuilder.Build();
 
             var defenseRate = defenseRateBuilder.Build();
+            damage = damage.Multiply(defenseRate.GenerateRate());
 
-            attackPower.NotifyAttackPower(damageBuilder);
-            defenseRate.NotifyDefenseRate(damageBuilder);
-            return damageBuilder.Build();
+            var randomRate = new Rate(random.Random());
+            damage = damage.Multiply(randomRate);
+
+            return damage;
         }
     }
 }
