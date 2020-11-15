@@ -23,4 +23,8 @@
       <ProjectReference Include="..\BuddyDomain\BuddyDomain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Battle" />
+    </ItemGroup>
+
 </Project>

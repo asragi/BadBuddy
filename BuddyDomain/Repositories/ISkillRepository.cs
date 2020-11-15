@@ -1,5 +1,5 @@
-using BuddyDomain.Entities.Battle;
-using BuddyDomain.ValueObjects.Battle.Skill;
+using BuddyDomain.Battle.Entities.Battle;
+using BuddyDomain.Battle.ValueObjects.Skill;
 
 namespace BuddyDomain.Repositories
 {
