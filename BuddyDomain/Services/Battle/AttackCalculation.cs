@@ -12,6 +12,7 @@ namespace BuddyDomain.Services.Battle
         private readonly IActorRepository actorRepository;
         private readonly ISkillRepository skillRepository;
         private readonly AttackPowerBuilder attackPowerBuilder;
+        private readonly DefenseRateBuilder defenseRateBuilder;
 
         public AttackCalculation(
             IActorRepository actorRepository,
@@ -22,6 +23,7 @@ namespace BuddyDomain.Services.Battle
             this.skillRepository = skillRepository;
             this.random = random;
             this.attackPowerBuilder = new AttackPowerBuilder();
+            this.defenseRateBuilder = new DefenseRateBuilder();
         }
 
         public void ExecuteCalculation(
@@ -36,6 +38,8 @@ namespace BuddyDomain.Services.Battle
             attacker.NotifyAttackFactor(this.attackPowerBuilder);
             skill.NotifyForceFactor(this.attackPowerBuilder);
             var attackPower = this.attackPowerBuilder.BuildPower();
+
+            var defenseRate = this.defenseRateBuilder.Build();
         }
     }
 }
