@@ -1,6 +1,7 @@
 using BuddyDomain.Modules;
 using BuddyDomain.Repositories;
 using BuddyDomain.Repositories.Battle;
+using BuddyDomain.ValueObjects.Battle;
 using BuddyDomain.ValueObjects.Battle.Actor;
 using BuddyDomain.ValueObjects.Battle.Skill;
 
@@ -13,6 +14,7 @@ namespace BuddyDomain.Services.Battle
         private readonly ISkillRepository skillRepository;
         private readonly AttackPowerBuilder attackPowerBuilder;
         private readonly DefenseRateBuilder defenseRateBuilder;
+        private readonly DamageBuilder damageBuilder;
 
         public AttackCalculation(
             IActorRepository actorRepository,
@@ -24,9 +26,10 @@ namespace BuddyDomain.Services.Battle
             this.random = random;
             this.attackPowerBuilder = new AttackPowerBuilder();
             this.defenseRateBuilder = new DefenseRateBuilder();
+            this.damageBuilder = new DamageBuilder();
         }
 
-        public void ExecuteCalculation(
+        public Damage ExecuteCalculation(
             ActorId from,
             ActorId to,
             SkillId skillId)
@@ -40,6 +43,10 @@ namespace BuddyDomain.Services.Battle
             var attackPower = this.attackPowerBuilder.BuildPower();
 
             var defenseRate = this.defenseRateBuilder.Build();
+
+            attackPower.NotifyAttackPower(this.damageBuilder);
+            defenseRate.NotifyDefenseRate(this.damageBuilder);
+            return this.damageBuilder.Build();
         }
     }
 }
