@@ -1,4 +1,5 @@
 using BuddyDomain.Battle.ValueObjects;
+using BuddyDomain.Modules;
 
 namespace BuddyDomain.Battle.Services
 {
@@ -11,7 +12,10 @@ namespace BuddyDomain.Battle.Services
 
         public void ListenDefenseRate(float rate) => defenseRate = rate;
 
-        public Damage Build()
-            => new Damage((int)(attackPower * defenseRate));
+        public Damage Build(IRandom random)
+        {
+            float damage = random.Random() * attackPower * defenseRate;
+            return new Damage((int)damage);
+        }
     }
 }

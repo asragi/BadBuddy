@@ -49,7 +49,7 @@ namespace BuddyDomain.Battle.Services
 
             attackPower.NotifyAttackPower(damageBuilder);
             defenseRate.NotifyDefenseRate(damageBuilder);
-            return damageBuilder.Build();
+            return damageBuilder.Build(random);
         }
     }
 }
