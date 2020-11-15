@@ -20,5 +20,10 @@ namespace BuddyDomain.Entities.Battle
             this.force = force;
             this.skillPoint = point;
         }
+
+        public void NotifyForceFactor(IForceNotification notification)
+        {
+            notification.ForceValue(this.force);
+        }
     }
 }

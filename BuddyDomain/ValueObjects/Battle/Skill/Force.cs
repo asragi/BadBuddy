@@ -15,5 +15,8 @@ namespace BuddyDomain.ValueObjects.Battle.Skill
 
             this.value = value;
         }
+
+        public void NotifyValue(IForceValueListener listener)
+            => listener.ListenForceValue(this.value);
     }
 }

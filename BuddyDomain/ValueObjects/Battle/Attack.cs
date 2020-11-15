@@ -15,5 +15,8 @@ namespace BuddyDomain.ValueObjects.Battle
 
             this.value = value;
         }
+
+        public void NotifyValue(IAttackValueListener listener)
+            => listener.ListenAttackValue(this.value);
     }
 }

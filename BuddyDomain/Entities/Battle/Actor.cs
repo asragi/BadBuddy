@@ -40,5 +40,20 @@ namespace BuddyDomain.Entities.Battle
 
         public void Recover(HealthPoint inc)
             => this.hp = this.hp.Recover(inc, this.maxHp);
+
+        public void NotifyAttackFactor(IAttackNotification notification)
+        {
+            notification.AttackValue(this.attack);
+        }
+
+        public void NotifyMagicFactor(IMagicNotification notification)
+        {
+            notification.MagicValue(this.magic);
+        }
+
+        public void NotifySpeedFactor(ISpeedNotification notification)
+        {
+            notification.SpeedValue(this.speed);
+        }
     }
 }
