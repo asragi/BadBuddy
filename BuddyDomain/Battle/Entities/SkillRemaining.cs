@@ -20,9 +20,9 @@ namespace BuddyDomain.Battle.Entities
         }
 
         public bool CheckRemain()
-            => this.skillPoint.CheckRemain();
+            => skillPoint.CheckRemain();
 
         public void Consume()
-            => this.skillPoint = this.skillPoint.Consume();
+            => skillPoint = skillPoint.Consume();
     }
 }

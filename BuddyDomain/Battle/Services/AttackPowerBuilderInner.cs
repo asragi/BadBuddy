@@ -8,10 +8,10 @@ namespace BuddyDomain.Battle.Services
         private int force;
 
         public AttackPower Build()
-            => new AttackPower(this.attack * this.force);
+            => new AttackPower(attack * force);
 
-        public void ListenAttackValue(int value) => this.attack = value;
+        public void ListenAttackValue(int value) => attack = value;
 
-        public void ListenForceValue(int value) => this.force = value;
+        public void ListenForceValue(int value) => force = value;
     }
 }

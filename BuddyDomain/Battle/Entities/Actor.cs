@@ -19,8 +19,8 @@ namespace BuddyDomain.Battle.Entities
             Speed speed,
             Magic magic)
         {
-            this.ActorId = actorId;
-            this.ActorType = actorType;
+            ActorId = actorId;
+            ActorType = actorType;
             this.maxHp = maxHp;
             this.hp = hp;
             this.attack = attack;
@@ -32,27 +32,27 @@ namespace BuddyDomain.Battle.Entities
 
         public ActorType ActorType { get; }
 
-        public bool Alive => this.hp.Alive;
+        public bool Alive => hp.Alive;
 
         public void Damaged(HealthPoint val)
-            => this.hp = this.hp.Reduce(val);
+            => hp = hp.Reduce(val);
 
         public void Recover(HealthPoint inc)
-            => this.hp = this.hp.Recover(inc, this.maxHp);
+            => hp = hp.Recover(inc, maxHp);
 
         public void NotifyAttackFactor(IAttackNotification notification)
         {
-            notification.AttackValue(this.attack);
+            notification.AttackValue(attack);
         }
 
         public void NotifyMagicFactor(IMagicNotification notification)
         {
-            notification.MagicValue(this.magic);
+            notification.MagicValue(magic);
         }
 
         public void NotifySpeedFactor(ISpeedNotification notification)
         {
-            notification.SpeedValue(this.speed);
+            notification.SpeedValue(speed);
         }
     }
 }
