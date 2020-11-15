@@ -1,4 +1,4 @@
-using BuddyDomain.Battle.Entities.Battle;
+using BuddyDomain.Battle.Entities;
 using BuddyDomain.Battle.ValueObjects.Actor;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

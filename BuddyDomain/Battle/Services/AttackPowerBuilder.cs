@@ -2,7 +2,7 @@ using BuddyDomain.Battle.ValueObjects;
 using BuddyDomain.Battle.ValueObjects.Actor;
 using BuddyDomain.Battle.ValueObjects.Skill;
 
-namespace BuddyDomain.Battle.Services.Battle
+namespace BuddyDomain.Battle.Services
 {
     public class AttackPowerBuilder : IAttackPowerBuilder
     {

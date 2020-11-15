@@ -1,7 +1,7 @@
 using BuddyDomain.Battle.ValueObjects.Actor;
 using BuddyDomain.Battle.ValueObjects.Skill;
 
-namespace BuddyDomain.Battle.Entities.Battle
+namespace BuddyDomain.Battle.Entities
 {
     public class SkillRemaining
     {

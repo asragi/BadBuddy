@@ -5,7 +5,7 @@ using BuddyDomain.Battle.ValueObjects.Skill;
 using BuddyDomain.Modules;
 using BuddyDomain.Repositories;
 
-namespace BuddyDomain.Battle.Services.Battle
+namespace BuddyDomain.Battle.Services
 {
     public class AttackCalculation
     {

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BuddyDomain.Battle.Entities.Battle
+namespace BuddyDomain.Battle.Entities
 {
     public class Party
     {

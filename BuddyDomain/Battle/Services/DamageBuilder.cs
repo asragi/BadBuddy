@@ -1,6 +1,6 @@
 using BuddyDomain.Battle.ValueObjects;
 
-namespace BuddyDomain.Battle.Services.Battle
+namespace BuddyDomain.Battle.Services
 {
     public class DamageBuilder : IDamageBuilder
     {

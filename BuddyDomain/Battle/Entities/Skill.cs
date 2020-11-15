@@ -1,6 +1,6 @@
 using BuddyDomain.Battle.ValueObjects.Skill;
 
-namespace BuddyDomain.Battle.Entities.Battle
+namespace BuddyDomain.Battle.Entities
 {
     public class Skill
     {
