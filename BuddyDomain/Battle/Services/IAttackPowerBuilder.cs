@@ -5,6 +5,6 @@ namespace BuddyDomain.Battle.Services
 {
     public interface IAttackPowerBuilder : IAttackNotification, IForceNotification
     {
-        AttackPower Build();
+        Damage Build();
     }
 }

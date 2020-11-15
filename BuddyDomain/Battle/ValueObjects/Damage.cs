@@ -1,5 +1,6 @@
 using System;
 using BuddyDomain.Battle.ValueObjects.Actor;
+using BuddyDomain.ValueObjects;
 
 namespace BuddyDomain.Battle.ValueObjects
 {
@@ -20,7 +21,8 @@ namespace BuddyDomain.Battle.ValueObjects
         public void NotifyDamage(IDamageListener listener)
             => listener.ListenDamage(value);
 
-        public HealthPoint GenerateHealthPoint()
-            => new HealthPoint(value);
+        public Damage Multiply(Rate rate) => new Damage((int)rate.Apply(value));
+
+        public HealthPoint GenerateHealthPoint() => new HealthPoint(value);
     }
 }

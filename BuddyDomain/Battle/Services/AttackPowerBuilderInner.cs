@@ -7,8 +7,7 @@ namespace BuddyDomain.Battle.Services
         private int attack;
         private int force;
 
-        public AttackPower Build()
-            => new AttackPower(attack * force);
+        public Damage Build() => new Damage(attack * force);
 
         public void ListenAttackValue(int value) => attack = value;
 

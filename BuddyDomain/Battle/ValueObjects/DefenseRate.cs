@@ -1,4 +1,5 @@
 using System;
+using BuddyDomain.ValueObjects;
 
 namespace BuddyDomain.Battle.ValueObjects
 {
@@ -16,7 +17,6 @@ namespace BuddyDomain.Battle.ValueObjects
             this.rate = rate;
         }
 
-        public void NotifyDefenseRate(IDefenseRateListener listener)
-            => listener.ListenDefenseRate(rate);
+        public Rate GenerateRate() => new Rate(rate);
     }
 }

@@ -11,17 +11,15 @@ namespace TestDomain.Battle.Service
         [TestMethod]
         public void Build()
         {
-            var listenerMock = new Mock<IAttackPowerListener>();
-            int powerResult = 0;
-            listenerMock.Setup(l => l.ListenAttackPower(It.IsAny<int>()))
-                .Callback<int>(p => powerResult = p);
+            var listenerMock = new Mock<IDamageListener>();
+            listenerMock.Setup(l => l.ListenDamage(It.IsAny<int>()))
+                .Callback<int>(p => Assert.AreEqual(5000, p));
 
             var builder = new AttackPowerBuilderInner();
             builder.ListenAttackValue(50);
             builder.ListenForceValue(100);
             var attackPower = builder.Build();
-            attackPower.NotifyAttackPower(listenerMock.Object);
-            Assert.AreEqual(5000, powerResult);
+            attackPower.NotifyDamage(listenerMock.Object);
         }
     }
 }

@@ -5,6 +5,6 @@ namespace BuddyDomain.Battle.Services
 {
     public interface IAttackPowerBuilderInner : IAttackValueListener, IForceValueListener
     {
-        AttackPower Build();
+        Damage Build();
     }
 }
