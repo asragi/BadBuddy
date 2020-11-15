@@ -6,6 +6,7 @@ using BuddyDomain.Battle.ValueObjects.Actor;
 using BuddyDomain.Battle.ValueObjects.Skill;
 using BuddyDomain.Modules;
 using BuddyDomain.Repositories;
+using BuddyDomain.ValueObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
@@ -42,12 +43,14 @@ namespace TestDomain.IntegrationTest
             var defenseBuilder = new DefenseRateBuilder();
 
             // Create Attack Calculation
+            var damageRate = new Rate(0.06f);
             var attackCalculation = new AttackCalculation(
                 actorRepository.Object,
                 skillRepository.Object,
                 attackPowerBuilder,
                 defenseBuilder,
-                random.Object);
+                random.Object,
+                damageRate);
 
             var damage = attackCalculation.ExecuteCalculation(
                 attackerId, victimId, new SkillId("Dummy"));
@@ -55,7 +58,7 @@ namespace TestDomain.IntegrationTest
             // Check Damage
             var damageListener = new Mock<IDamageListener>();
             damageListener.Setup(l => l.ListenDamage(It.IsAny<int>()))
-                .Callback<int>(val => Assert.AreEqual(5000, val));
+                .Callback<int>(val => Assert.AreEqual(300, val));
             damage.NotifyDamage(damageListener.Object);
         }
 

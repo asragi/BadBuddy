@@ -11,6 +11,7 @@ namespace BuddyDomain.Battle.Services
     public class AttackCalculation
     {
         private readonly IRandom random;
+        private readonly Rate damageRate;
         private readonly IActorRepository actorRepository;
         private readonly ISkillRepository skillRepository;
         private readonly IAttackPowerBuilder attackPowerBuilder;
@@ -21,13 +22,15 @@ namespace BuddyDomain.Battle.Services
             ISkillRepository skillRepository,
             IAttackPowerBuilder attackPowerBuilder,
             IDefenseRateBuilder defenseRateBuilder,
-            IRandom random)
+            IRandom random,
+            Rate damageRate)
         {
             this.actorRepository = actorRepository;
             this.skillRepository = skillRepository;
             this.random = random;
             this.attackPowerBuilder = attackPowerBuilder;
             this.defenseRateBuilder = defenseRateBuilder;
+            this.damageRate = damageRate;
         }
 
         public Damage ExecuteCalculation(
@@ -49,6 +52,8 @@ namespace BuddyDomain.Battle.Services
 
             var randomRate = new Rate(random.Random());
             damage = damage.Multiply(randomRate);
+
+            damage = damage.Multiply(damageRate);
 
             return damage;
         }
