@@ -1,9 +1,8 @@
 using BuddyDomain.ValueObjects.Battle;
-using BuddyDomain.ValueObjects.Battle.Skill;
 
 namespace BuddyDomain.Services.Battle
 {
-    public class AttackPowerValueBuilder : IAttackValueListener, IForceValueListener
+    public class AttackPowerBuilderInner : IAttackPowerBuilderInner
     {
         private int attack;
         private int force;

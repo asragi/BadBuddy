@@ -2,7 +2,7 @@ using BuddyDomain.ValueObjects.Battle;
 
 namespace BuddyDomain.Services.Battle
 {
-    public class DamageBuilder : IAttackPowerListener, IDefenseRateListener
+    public class DamageBuilder : IDamageBuilder
     {
         private int attackPower;
         private float defenseRate;

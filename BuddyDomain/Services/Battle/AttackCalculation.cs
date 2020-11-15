@@ -12,21 +12,24 @@ namespace BuddyDomain.Services.Battle
         private readonly IRandom random;
         private readonly IActorRepository actorRepository;
         private readonly ISkillRepository skillRepository;
-        private readonly AttackPowerBuilder attackPowerBuilder;
-        private readonly DefenseRateBuilder defenseRateBuilder;
-        private readonly DamageBuilder damageBuilder;
+        private readonly IAttackPowerBuilder attackPowerBuilder;
+        private readonly IDefenseRateBuilder defenseRateBuilder;
+        private readonly IDamageBuilder damageBuilder;
 
         public AttackCalculation(
             IActorRepository actorRepository,
             ISkillRepository skillRepository,
+            IAttackPowerBuilder attackPowerBuilder,
+            IDefenseRateBuilder defenseRateBuilder,
+            IDamageBuilder damageBuilder,
             IRandom random)
         {
             this.actorRepository = actorRepository;
             this.skillRepository = skillRepository;
             this.random = random;
-            this.attackPowerBuilder = new AttackPowerBuilder();
-            this.defenseRateBuilder = new DefenseRateBuilder();
-            this.damageBuilder = new DamageBuilder();
+            this.attackPowerBuilder = attackPowerBuilder;
+            this.defenseRateBuilder = defenseRateBuilder;
+            this.damageBuilder = damageBuilder;
         }
 
         public Damage ExecuteCalculation(
@@ -40,7 +43,7 @@ namespace BuddyDomain.Services.Battle
 
             attacker.NotifyAttackFactor(this.attackPowerBuilder);
             skill.NotifyForceFactor(this.attackPowerBuilder);
-            var attackPower = this.attackPowerBuilder.BuildPower();
+            var attackPower = this.attackPowerBuilder.Build();
 
             var defenseRate = this.defenseRateBuilder.Build();
 
