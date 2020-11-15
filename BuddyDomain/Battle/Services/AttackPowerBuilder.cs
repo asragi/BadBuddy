@@ -15,15 +15,15 @@ namespace BuddyDomain.Battle.Services
             this.attackPowerBuilderInner = attackPowerBuilderInner;
         }
 
-        public void AttackValue(Attack attack) => this.attackRef = attack;
+        public void AttackValue(Attack attack) => attackRef = attack;
 
-        public void ForceValue(Force force) => this.forceRef = force;
+        public void ForceValue(Force force) => forceRef = force;
 
         public AttackPower Build()
         {
-            this.attackRef.NotifyValue(this.attackPowerBuilderInner);
-            this.forceRef.NotifyValue(this.attackPowerBuilderInner);
-            return this.attackPowerBuilderInner.Build();
+            attackRef.NotifyValue(attackPowerBuilderInner);
+            forceRef.NotifyValue(attackPowerBuilderInner);
+            return attackPowerBuilderInner.Build();
         }
     }
 }

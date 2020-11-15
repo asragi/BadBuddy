@@ -7,11 +7,11 @@ namespace BuddyDomain.Battle.Services
         private int attackPower;
         private float defenseRate;
 
-        public void ListenAttackPower(int power) => this.attackPower = power;
+        public void ListenAttackPower(int power) => attackPower = power;
 
-        public void ListenDefenseRate(float rate) => this.defenseRate = rate;
+        public void ListenDefenseRate(float rate) => defenseRate = rate;
 
         public Damage Build()
-            => new Damage((int)(this.attackPower * this.defenseRate));
+            => new Damage((int)(attackPower * defenseRate));
     }
 }

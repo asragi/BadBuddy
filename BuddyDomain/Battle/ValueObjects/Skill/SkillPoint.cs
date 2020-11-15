@@ -16,11 +16,11 @@ namespace BuddyDomain.Battle.ValueObjects.Skill
             this.value = value;
         }
 
-        public bool CheckRemain() => this.value > 0;
+        public bool CheckRemain() => value > 0;
 
         public SkillPoint Consume()
         {
-            int nextValue = Math.Max(0, this.value - 1);
+            int nextValue = Math.Max(0, value - 1);
             return new SkillPoint(nextValue);
         }
     }

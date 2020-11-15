@@ -18,21 +18,21 @@ namespace BuddyDomain.Battle.ValueObjects.Actor
 
         public static HealthPoint Zero => new HealthPoint(0);
 
-        public bool Alive => this.value > 0;
+        public bool Alive => value > 0;
 
         public HealthPoint Reduce(HealthPoint down)
         {
-            int newerValue = Math.Max(0, this.value - down.value);
+            int newerValue = Math.Max(0, value - down.value);
             return new HealthPoint(newerValue);
         }
 
         public HealthPoint Recover(HealthPoint inc, MaxHealthPoint max)
         {
             var refHp = max.MaxHealth;
-            int after = Math.Min(refHp.value, this.value + inc.value);
+            int after = Math.Min(refHp.value, value + inc.value);
             return new HealthPoint(after);
         }
 
-        public string Display() => this.value.ToString();
+        public string Display() => value.ToString();
     }
 }

@@ -18,12 +18,12 @@ namespace BuddyDomain.Battle.Entities
             this.id = id;
             this.target = target;
             this.force = force;
-            this.skillPoint = point;
+            skillPoint = point;
         }
 
         public void NotifyForceFactor(IForceNotification notification)
         {
-            notification.ForceValue(this.force);
+            notification.ForceValue(force);
         }
     }
 }

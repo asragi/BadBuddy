@@ -4,12 +4,12 @@ namespace BuddyDomain.Battle.ValueObjects.Actor
     {
         public MaxHealthPoint(HealthPoint value)
         {
-            this.MaxHealth = value;
+            MaxHealth = value;
         }
 
         public HealthPoint MaxHealth { get; }
 
         public string Display()
-            => this.MaxHealth.Display();
+            => MaxHealth.Display();
     }
 }

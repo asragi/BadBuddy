@@ -37,19 +37,19 @@ namespace BuddyDomain.Battle.Services
             ActorId to,
             SkillId skillId)
         {
-            var attacker = this.actorRepository.Find(from);
-            var victim = this.actorRepository.Find(to);
-            var skill = this.skillRepository.Find(skillId);
+            var attacker = actorRepository.Find(from);
+            var victim = actorRepository.Find(to);
+            var skill = skillRepository.Find(skillId);
 
-            attacker.NotifyAttackFactor(this.attackPowerBuilder);
-            skill.NotifyForceFactor(this.attackPowerBuilder);
-            var attackPower = this.attackPowerBuilder.Build();
+            attacker.NotifyAttackFactor(attackPowerBuilder);
+            skill.NotifyForceFactor(attackPowerBuilder);
+            var attackPower = attackPowerBuilder.Build();
 
-            var defenseRate = this.defenseRateBuilder.Build();
+            var defenseRate = defenseRateBuilder.Build();
 
-            attackPower.NotifyAttackPower(this.damageBuilder);
-            defenseRate.NotifyDefenseRate(this.damageBuilder);
-            return this.damageBuilder.Build();
+            attackPower.NotifyAttackPower(damageBuilder);
+            defenseRate.NotifyDefenseRate(damageBuilder);
+            return damageBuilder.Build();
         }
     }
 }

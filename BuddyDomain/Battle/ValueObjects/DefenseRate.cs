@@ -17,6 +17,6 @@ namespace BuddyDomain.Battle.ValueObjects
         }
 
         public void NotifyDefenseRate(IDefenseRateListener listener)
-            => listener.ListenDefenseRate(this.rate);
+            => listener.ListenDefenseRate(rate);
     }
 }
