@@ -1,9 +1,10 @@
 using BuddyDomain.Battle.ValueObjects;
+using BuddyDomain.Modules;
 
 namespace BuddyDomain.Battle.Services
 {
     public interface IDamageBuilder : IAttackPowerListener, IDefenseRateListener
     {
-        Damage Build();
+        Damage Build(IRandom random);
     }
 }
