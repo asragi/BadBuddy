@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using BuddyDomain.Battle.Entities;
-using BuddyDomain.Battle.Repositories;
 using BuddyDomain.Battle.Services;
 using BuddyDomain.Battle.ValueObjects.Actor;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
