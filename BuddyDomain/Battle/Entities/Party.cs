@@ -12,5 +12,8 @@ namespace BuddyDomain.Battle.Entities
         {
             this.actors = actors.ToList();
         }
+
+        public void NotifyMember(IPartyMemberListener listener)
+            => listener.ListenMember(actors);
     }
 }
