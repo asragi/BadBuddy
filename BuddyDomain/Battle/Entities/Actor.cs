@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using BuddyDomain.Battle.ValueObjects.Actor;
 
 namespace BuddyDomain.Battle.Entities
@@ -28,6 +29,9 @@ namespace BuddyDomain.Battle.Entities
             this.magic = magic;
         }
 
+        public static IComparer<Actor> SpeedComparer { get; }
+            = new InnerSpeedComparer();
+
         public ActorId ActorId { get; }
 
         public ActorType ActorType { get; }
@@ -50,9 +54,20 @@ namespace BuddyDomain.Battle.Entities
             notification.MagicValue(magic);
         }
 
-        public void NotifySpeedFactor(ISpeedNotification notification)
+        public void NotifySpeedFactor(ISpeedListener listener)
         {
-            notification.SpeedValue(speed);
+            listener.SpeedValue(speed);
+        }
+
+        private class InnerSpeedComparer : IComparer<Actor>
+        {
+            public int Compare(Actor x, Actor y)
+            {
+                if (ReferenceEquals(x, y)) return 0;
+                if (ReferenceEquals(null, y)) return 1;
+                if (ReferenceEquals(null, x)) return -1;
+                return x.speed.CompareTo(y.speed);
+            }
         }
     }
 }

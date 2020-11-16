@@ -2,7 +2,7 @@ using System;
 
 namespace BuddyDomain.Battle.ValueObjects.Actor
 {
-    public readonly struct Speed
+    public readonly struct Speed : IComparable<Speed>
     {
         private readonly int value;
 
@@ -15,5 +15,14 @@ namespace BuddyDomain.Battle.ValueObjects.Actor
 
             this.value = value;
         }
+
+        public static bool operator <(Speed a, Speed b)
+            => a.CompareTo(b) < 0;
+
+        public static bool operator >(Speed a, Speed b)
+            => a.CompareTo(b) < 0;
+
+        public int CompareTo(Speed other) => value.CompareTo(other.value);
+
     }
 }
