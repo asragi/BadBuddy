@@ -2,7 +2,7 @@ using System;
 
 namespace BuddyDomain.Battle.ValueObjects.Actor
 {
-    public struct ActorId : IEquatable<ActorId>
+    public readonly struct ActorId : IEquatable<ActorId>
     {
         private readonly string id;
 

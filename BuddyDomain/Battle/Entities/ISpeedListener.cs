@@ -2,7 +2,7 @@ using BuddyDomain.Battle.ValueObjects.Actor;
 
 namespace BuddyDomain.Battle.Entities
 {
-    public interface ISpeedNotification
+    public interface ISpeedListener
     {
         void SpeedValue(Speed speed);
     }
