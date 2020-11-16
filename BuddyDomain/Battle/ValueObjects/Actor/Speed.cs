@@ -20,7 +20,7 @@ namespace BuddyDomain.Battle.ValueObjects.Actor
             => a.CompareTo(b) < 0;
 
         public static bool operator >(Speed a, Speed b)
-            => a.CompareTo(b) < 0;
+            => a.CompareTo(b) > 0;
 
         public int CompareTo(Speed other) => value.CompareTo(other.value);
 
